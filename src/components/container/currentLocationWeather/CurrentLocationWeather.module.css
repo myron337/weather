@@ -1,0 +1,62 @@
+.currentLocationWeather {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.temperature {
+  font-size: 70px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.condition {
+  font-size: 20px;
+  color: #ffffff98;
+}
+
+.divider {
+  width: 1px;
+  background-color: #ffffff2d;
+  height: 70px;
+  display: flex;
+  margin: auto 25px;
+}
+
+.humidityWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.windWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 25px;
+}
+.humidity {
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 16px;
+  color: #ffffff98;
+}
+
+.humidityValue {
+  font-size: 25px;
+  color: var(--text-color);
+}
+
+.wind {
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 16px;
+  color: #ffffff98;
+}
+
+.windValue {
+  font-size: 25px;
+  color: var(--text-color);
+}

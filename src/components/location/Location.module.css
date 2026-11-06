@@ -1,0 +1,24 @@
+.location {
+   color: var(--text-color);
+  font-weight: 700;
+  background-color: #3f6783;
+  padding: 10px;
+  max-width: 200px;
+  width: 100%;
+  border-radius: 40px;
+  border: 0.5px solid #64869b;
+  font-size: 15px;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.liveIcon {
+  background-color: #53eafd;
+  border-radius: 30%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow: #53eafd 0px 0px 8px;
+}

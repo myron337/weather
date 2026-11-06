@@ -1,0 +1,73 @@
+.graphItem {
+  background: #ffffff47;
+  border: 1px solid #ffffff80;
+  transition: all 0.3s;
+  border-radius: 20px;
+  max-width: 308px;
+  width: 100%;
+  animation: 6s ease-in-out infinite float;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px;
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+.graphItem:nth-child(2) {
+  animation-delay: -4.5s;
+}
+
+.graphItem:nth-child(3) {
+  animation-delay: -3s;
+}
+
+.graphItem:nth-child(4) {
+  animation-delay: -1.5s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .graphItem {
+    animation: none;
+  }
+}
+
+.graphItem:hover {
+  background: #ffffff80;
+  border: 1px solid #ffffff80;
+}
+
+.graphItemScore {
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff98;
+  margin-top: 10px;
+}
+
+.graphItemTemperature {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-color);
+  margin-top: 10px;
+}
+
+.graphItemCountry {
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff98;
+  margin-top: 10px;
+}
