@@ -1,14 +1,29 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import classes from "./SearchCountry.module.css";
 import Continents from "../continents/Continents";
+import { CONTINENTS, type Continent } from "@/utils/continent";
 
-const SearchCountry = () => {
-  const [activeContinent, setActiveContinent] = useState<string | null>(null);
+export type ContinentFilter = Continent | "All";
 
-  const handleClick = (continent: string) => {
-    setActiveContinent((prev) => (prev === continent ? null : continent));
+const CONTINENT_FILTERS: ContinentFilter[] = ["All", ...CONTINENTS];
+
+interface SearchCountryProps {
+  query: string;
+  onQueryChange: (query: string) => void;
+  activeContinent: ContinentFilter;
+  onContinentChange: (continent: ContinentFilter) => void;
+}
+
+const SearchCountry = ({
+  query,
+  onQueryChange,
+  activeContinent,
+  onContinentChange,
+}: SearchCountryProps) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    onQueryChange(event.target.value);
   };
 
   return (
@@ -22,40 +37,20 @@ const SearchCountry = () => {
         <input
           className={classes.searchInput}
           type="text"
-          placeholder="Search for a country..."
+          placeholder="Search for a city or country..."
+          value={query}
+          onChange={handleChange}
         />
       </div>
       <div className={classes.continents}>
-        <Continents
-          continent="Europe"
-          isActive={activeContinent === "Europe"}
-          onclick={() => handleClick("Europe")}
-        />
-        <Continents
-          continent="Asia"
-          isActive={activeContinent === "Asia"}
-          onclick={() => handleClick("Asia")}
-        />
-        <Continents
-          continent="Africa"
-          isActive={activeContinent === "Africa"}
-          onclick={() => handleClick("Africa")}
-        />
-        <Continents
-          continent="North America"
-          isActive={activeContinent === "North America"}
-          onclick={() => handleClick("North America")}
-        />
-        <Continents
-          continent="South America"
-          isActive={activeContinent === "South America"}
-          onclick={() => handleClick("South America")}
-        />
-        <Continents
-          continent="Oceania"
-          isActive={activeContinent === "Oceania"}
-          onclick={() => handleClick("Oceania")}
-        />
+        {CONTINENT_FILTERS.map((continent) => (
+          <Continents
+            key={continent}
+            continent={continent}
+            isActive={activeContinent === continent}
+            onclick={() => onContinentChange(continent)}
+          />
+        ))}
       </div>
     </div>
   );

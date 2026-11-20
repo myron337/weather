@@ -4,11 +4,25 @@
   transition: all 0.3s ease;
   margin-top: 30px;
   border-radius: 30px;
-  width: 350px;
+  width: 100%;
+  box-sizing: border-box;
   padding: 20px;
 }
 
-.countryCard:hover {
+.countryCard.clickable {
+  cursor: pointer;
+}
+
+.countryCard.disabled {
+  opacity: 0.6;
+}
+
+.countryCard.clickable:focus-visible {
+  outline: 2px solid rgb(96, 200, 255);
+  outline-offset: 3px;
+}
+
+.countryCard.clickable:hover {
   background: rgba(255, 255, 255, 0.452);
   border: 1px solid rgba(255, 255, 255, 0.8);
   transform: translateY(-7px);
@@ -81,7 +95,8 @@
 .score:after {
   content: "";
   display: block;
-  width: 25%;
+  width: var(--score, 0%);
+  transition: width 0.6s ease;
   height: 100%;
   background-color: rgb(96, 200, 255);
   border-radius: 20px;
@@ -118,4 +133,67 @@
   display: flex;
   justify-content: space-between;
   color: #a0d7ffb3;
+}
+/* entrance: cards rise in one after another (delay set per card) */
+.countryCard {
+  animation: cardIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+.countryCard.clickable:hover {
+  box-shadow: 0 12px 30px -10px rgba(23, 131, 255, 0.45);
+}
+
+.countryCard.clickable:active {
+  transform: translateY(-3px) scale(0.98);
+}
+
+.mainImage {
+  transition: transform 0.4s ease;
+}
+
+.countryCard.clickable:hover .mainImage {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+/* values remount (via key) when they change, replaying this */
+.fadeIn {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .countryCard,
+  .fadeIn,
+  .score:after {
+    animation: none;
+    transition: none;
+  }
+
+  .countryCard.clickable:hover,
+  .countryCard.clickable:active,
+  .countryCard.clickable:hover .mainImage {
+    transform: none;
+  }
 }

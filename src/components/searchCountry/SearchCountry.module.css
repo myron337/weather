@@ -39,6 +39,53 @@
   outline: none;
   background: #ffffff33;
   border: 1px solid #ffffff80;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+    color: #fff;
+}
+
+.searchInput:focus {
+  background: #ffffff4d;
+  border-color: #53eafd;
+  box-shadow: 0 0 6px #53e9fd40;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-6px) scale(0.98);
+  transform-origin: top center;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0s linear 0.2s;
+}
+
+.dropdownOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .searchInput,
+  .dropdown,
+  .dropdownOpen {
+    transition: none;
+  }
 }
 
 .searchInput::placeholder {

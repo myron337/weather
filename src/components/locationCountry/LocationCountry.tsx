@@ -10,10 +10,11 @@ interface LocationCountryProps {
 const LocationCountry = ({ country, city, time }: LocationCountryProps) => {
     return (
         <div className={classes.locationCountry}>
-            <h2>{country}</h2>
+            <h2 key={city} className={classes.fadeIn}>{city}</h2>
            <div className={classes.locationDetails}>
-            <p>{city} ·</p>
-            <p>{time}</p>
+            {/* prefixed: both are '' while loading and would collide */}
+            <p key={`country-${country}`} className={classes.fadeIn}>{country}</p>
+            <p key={`time-${time}`} className={classes.fadeIn}>{time}</p>
             </div>
         </div>
     );

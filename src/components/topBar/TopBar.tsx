@@ -1,12 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import classes from "./TopBar.module.css";
 import Image from "next/image";
 import ButtonDegree from "../buttonDegree/ButtonDegree";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { selectTemperatureUnit } from "@/store/settings/settings.selectors";
+import { setTemperatureUnit } from "@/store/settings/settings.slice";
 
 const TopBar = () => {
-  const [unit, setUnit] = useState<"C" | "F">("C");
+  const dispatch = useAppDispatch();
+  const unit = useAppSelector(selectTemperatureUnit);
 
   return (
     <div className={classes.topBar}>
@@ -27,12 +31,12 @@ const TopBar = () => {
         <ButtonDegree
           buttonText="°C"
           isActive={unit === "C"}
-          onClick={() => setUnit("C")}
+          onClick={() => dispatch(setTemperatureUnit("C"))}
         />
         <ButtonDegree
           buttonText="°F"
           isActive={unit === "F"}
-          onClick={() => setUnit("F")}
+          onClick={() => dispatch(setTemperatureUnit("F"))}
         />
       </div>
       <div className={classes.active}>

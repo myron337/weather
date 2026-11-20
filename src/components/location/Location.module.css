@@ -12,6 +12,14 @@
   display: flex;
   gap: 10px;
   justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.location:hover {
+  background-color: #3f6783;
+  border: 0.5px solid #53eafd;
+  box-shadow: #53e9fd26 0px 0px 4px;
 }
 
 .liveIcon {
