@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { asset } from "@/utils/asset";
 import classes from "./CountryCard.module.css";
 import WeatherDetails from "../weatherDetails/WeatherDetails";
 import type { SearchItem } from "@/hooks/useCitySearch";
@@ -121,7 +122,7 @@ const CountryCard = ({ item, onSelect, index = 0 }: CountryCardProps) => {
           <img
             key={info?.icon ?? "placeholder"}
             className={`${classes.mainImage} ${classes.fadeIn}`}
-            src={info?.icon ?? "/icons/partly-cloudy-day.svg"}
+            src={asset(info?.icon ?? "/icons/partly-cloudy-day.svg")}
             alt={info?.label ?? "Weather icon"}
             width="100"
             height="100"

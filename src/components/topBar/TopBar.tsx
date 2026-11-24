@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { asset } from "@/utils/asset";
 import classes from "./TopBar.module.css";
 import Image from "next/image";
 import ButtonDegree from "../buttonDegree/ButtonDegree";
@@ -17,7 +18,7 @@ const TopBar = () => {
       <div className={classes.logo}>
       <Image
         className={classes.icon}
-        src="/icons/main-logo.png"
+        src={asset("/icons/main-logo.png")}
         alt="Weather Globe"
         width={30}
         height={30}
@@ -42,7 +43,7 @@ const TopBar = () => {
       <div className={classes.active}>
          {/* <Image
         className={classes.liveIcon}
-        src="/icons/radio.svg"
+        src={asset("/icons/radio.svg")}
         alt="Weather Globe"
         width={20}
         height={20}

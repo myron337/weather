@@ -1,4 +1,5 @@
 import React from "react";
+import { asset } from "@/utils/asset";
 import classes from "./CurrentLocationWeather.module.css";
 import {
   useGetCurrentWeatherQuery,
@@ -43,7 +44,7 @@ const CurrentLocationWeather = ({ coordinates }: CurrentLocationWeatherProps) =>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         key={icon}
-        src={icon}
+        src={asset(icon)}
         alt={info?.label ?? "Weather icon"}
         className={`${classes.weatherIcon} ${classes.fadeIn}`}
         height="130"

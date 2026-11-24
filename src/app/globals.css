@@ -108,7 +108,7 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background-image: url(/icons/weather-background.jpg);
+  background-image: url(../../public/icons/weather-background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   filter: blur(3px);

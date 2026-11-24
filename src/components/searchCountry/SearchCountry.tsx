@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { asset } from "@/utils/asset";
 import classes from "./SearchCountry.module.css";
 import Continents from "../continents/Continents";
 import { CONTINENTS, type Continent } from "@/utils/continent";
@@ -31,7 +32,7 @@ const SearchCountry = ({
       <div className={classes.inputWrapper}>
         <img
           className={classes.searchIcon}
-          src="/icons/mglass.png"
+          src={asset("/icons/mglass.png")}
           alt="magnifying glass"
         />
         <input
