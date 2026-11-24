@@ -1,14 +1,10 @@
 import type { NextConfig } from "next";
-
-const basePath = "/weather";
+import { BASE_PATH } from "./src/constants/basePath";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
   output: "export",
-  basePath,
-  env: {
-    NEXT_PUBLIC_BASE_PATH: basePath,
-  },
+  basePath: BASE_PATH,
   images: {
     unoptimized: true,
   },
